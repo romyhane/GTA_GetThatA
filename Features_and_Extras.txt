@@ -41,3 +41,42 @@ Bonus Features Implementation:
    - The Fail Monster: A unique entity that patrols the map. Unlike bombs 
      that reduce lives, contact with this monster results in an immediate 
      Game Over (Instant Death).
+	 
+6. Dynamic Level Scaling (Filesystem API):
+   - Integrated the C++ <filesystem> library to dynamically scan the working directory 
+     for map files.
+   - Maps are stored in a dynamic vector, allowing the engine to support any number 
+     of levels seamlessly.
+   - Implemented dynamic Dark Room detection by detecting '~' characters at runtime 
+     instead of using hardcoded coordinates.
+
+7. Decoupled Riddle System:
+   - Completely decoupled the riddle loading logic. All riddles are loaded into a 
+     global memory pool.
+   - Implemented a cyclic assignment algorithm. Any '?' tile placed on any map 
+     automatically pulls the next valid question from the pool.
+
+8. Spatial Coupling for Interactive Objects:
+   - Developed a "Spatial Coupling" algorithm for switch-to-door connections.
+   - Upon level load, each switch object scans the grid and dynamically links to 
+     the nearest Door object using Euclidean distance calculations.
+   - This decoupled architecture allows full freedom in map design without backend 
+     code changes.
+
+9. Advanced Physics (Spring Mechanics & Priming):
+   - Upgraded the physics logic to include a "Priming" phase for Spring tiles.
+   - Players enter a locked "charged" state upon contact with a spring (triggering 
+     a compression animation).
+   - The kinetic launch is only executed when the player explicitly triggers the 
+     release command.
+	 
+10. Command-Line Arguments & Automation (Testing Modes):
+    The game engine supports advanced execution modes via command-line arguments 
+    to facilitate automated testing and debugging:
+    - "-save": Records all game events, random seeds, and player inputs into 
+      dedicated tracking files (.steps and .result).
+    - "-load": Runs the game in playback mode, automatically executing the 
+      recorded keystrokes from the .steps file.
+    - "-silent": Runs the engine in "Headless" mode (bypassing all visual 
+      rendering and UI delays) for instant automated test validation against 
+      expected results.

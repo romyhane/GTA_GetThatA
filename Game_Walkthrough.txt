@@ -1,10 +1,10 @@
 ========================================================================
-             C++ Project: GTA - GET THAT A (Exercise 2)
+             C++ Project: GTA - GET THAT A
 ========================================================================
 Submitters:
 -----------
-1. Name: Romy Hane   ID: 324271071
-2. Name: Tomer Kill     ID: 322546169
+1. Name: Romy Hane
+2. Name: Tomer Kill
 
 
 Project Description:
@@ -22,7 +22,7 @@ Walls: Instead of using 'W', we designed the walls using '+' for corners,
 '-' for the floor and ceiling, and '|' for vertical walls, creating a cleaner and 
 more organized aesthetic.
 
-Monsters: We added a FAIL Monster represented by the character 'F' (see the BONUS 
+Monsters: We added a FAIL Monster represented by the character 'F' (see the Features_and_Extras 
 file for more details).
 
 Darkness: We used the '~' character to represent the Dark Area (Fog) in Level 3.

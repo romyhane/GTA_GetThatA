@@ -46,7 +46,7 @@ Game Logic & Configuration Notes:
 =================================
 
 1. Key & Door Design Choice: 
-   "Each key may match one or more doors, depending on the game design" (Ex2 Instructions).
+   "Each key may match one or more doors, depending on the game design".
    Design Decision: We implemented a generic key system (similar to classic arcade games). 
    Any collected 'K' is added to the inventory and can be used to open the next locked 
    door the player encounters. Therefore, no specific mapping configuration is needed 

@@ -1,0 +1,43 @@
+Bonus Features Implementation:
+------------------------------
+
+1. Color Support:
+   We implemented full color support using the Windows Console API 
+   (SetConsoleTextAttribute).
+   - The game includes a Main Menu option [5] to toggle colors ON/OFF.
+   - The game works perfectly in both Color and Black & White modes.
+   - Different elements (Walls, Players, Bombs, Keys) have distinct colors 
+     for better visibility.
+
+2. User Interface (UI):
+   - Added ASCII Art for the Main Menu and Instructions.
+   - Added a dynamic "Funny Wall Collision" message system that randomizes 
+     responses when a player hits a wall.
+   - Added a persistent Status Bar for inventory tracking.
+   
+3. Advanced Switch Mechanics:
+   We implemented two distinct types of switches using a single 'Switch' class and a 
+   boolean flag ('isLatching'), adding depth to puzzle design:
+   - Smart Switch (Momentary): The connected door remains open ONLY as long as 
+     a player is physically standing on the switch. Once pressure is removed, the door closes immediately.
+	 Color : BROWN always. (you cannot see when its ON - player is stepping on it).
+   - Regular Switch (Latching/Permanent): Once activated by stepping on it, 
+     the switch permanently toggles to the 'ON' state and the connected door remains open forever, regardless 
+	 of player position.
+	 Color : OFF - RED , ON - GREEN.
+	 
+4. Adaptive HUD & Unicode Support:
+   We enhanced the Status Bar to support rich visuals while maintaining 
+   backward compatibility:
+   - Graphic Mode (Color ON): Uses Windows Unicode API (WriteConsoleW) to render 
+     actual Heart symbols (♥) for player lives.
+   - Safe Mode (Color OFF): Automatically detects the toggle and switches 
+     to standard ASCII characters ('L') to prevent display glitches on 
+     older terminals or non-Unicode environments.
+
+5. The "Fail Monster" Mechanic:
+   We introduced a special enemy type and environment logic in Level 3 
+   to increase difficulty and variety:
+   - The Fail Monster: A unique entity that patrols the map. Unlike bombs 
+     that reduce lives, contact with this monster results in an immediate 
+     Game Over (Instant Death).

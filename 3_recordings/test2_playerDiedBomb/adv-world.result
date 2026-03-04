@@ -1,0 +1,8 @@
+89 PLAYER_DIED Tomer
+259 RIDDLE_SOLVED Q: I end every statement. Can't forget me! I'm:___ | A: ;
+371 PLAYER_MOVED_SCREEN Romy from 1 to 2
+461 PLAYER_MOVED_SCREEN Tomer from 1 to 2
+662 PLAYER_DIED Tomer
+716 RIDDLE_SOLVED Q: First letter of ABC + Our project grade:)I'm:___ | A: A
+782 PLAYER_DIED Tomer
+782 GAME_OVER Bomb

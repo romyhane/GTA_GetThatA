@@ -1,0 +1,68 @@
+Format for adv-world.steps:
+---------------------------
+Line 1: <Random Seed (long)>
+Subsequent Lines: <GameCycle (long)> <Key (char)>
+
+Example:
+1739284411
+50 w
+52 d
+100 i
+
+Format for adv-world.result:
+----------------------------
+Each line represents an event: <Time (long)> <Event Name (string)> <Details (string)>
+
+Events:
+- Level Completion: <Time> LEVEL_FINISHED <Level Number>
+- Player Death:     <Time> PLAYER_DIED <Player Name>
+- Riddle Solved:    <Time> RIDDLE_SOLVED <Attempt Number>
+- Game End:         <Time> GAME_ENDED <Total Score>
+
+========================================================================
+Screen File Format & Map Legend
+========================================================================
+The .screen files use standard ASCII characters to define the level layout.
+Below is the Legend for creating custom levels:
+
+Entities & Objects:
+-------------------
+ @  : Bomb (Can be picked up and thrown to destroy walls).
+ #  : Spring (Launches players/obstacles; requires recovery time).
+ F  : Fail Monster (Patrolling enemy; contact = Instant Game Over).
+ * : Obstacle (Heavy block; requires combined force/spring to push).
+ !  : Torch (Illuminates Dark Areas).
+ ~  : Dark Floor (Fog of War area; visible only with Torch).
+ ?  : Riddle Tile (Triggers a question from riddles.txt).
+ K  : Key (Generic collectible item).
+ ^  : Smart Switch (Momentary - active only when standing on it).
+ \  : Regular Switch (Latching - stays active after one press).
+ 1-9: Doors (Numbered gates/obstacles).
+ R  : Start position for Player Romy.
+ T  : Start position for Player Tomer.
+ L  : Legend Anchor (Crucial for UI alignment).
+
+Game Logic & Configuration Notes:
+=================================
+
+1. Key & Door Design Choice: 
+   "Each key may match one or more doors, depending on the game design" (Ex2 Instructions).
+   Design Decision: We implemented a generic key system (similar to classic arcade games). 
+   Any collected 'K' is added to the inventory and can be used to open the next locked 
+   door the player encounters. Therefore, no specific mapping configuration is needed 
+   or implemented in the file format.
+
+2. Switch-Door Connection (Spatial Coupling):
+   To avoid hardcoding switch logic, the game automatically links each switch 
+   to the *nearest* door (Euclidean distance) upon loading the level. 
+   This allows full flexibility in level design without special file syntax.
+
+3. Riddle Mapping (Cyclic Pool):
+   Riddles are loaded from 'riddles.txt' into a global pool. 
+   '?' tiles on the map are assigned questions sequentially (Cyclic/Modulo). 
+   This ensures that adding new '?' tiles always results in a valid riddle, 
+   regardless of the level number.
+
+4. Dark Room Configuration:
+   The Dark Room is configured automatically by detecting the bounding box 
+   of '~' (Dark Floor) tiles in the screen file.

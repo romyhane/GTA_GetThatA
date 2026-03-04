@@ -1,0 +1,95 @@
+========================================================================
+             C++ Project: GTA - GET THAT A (Exercise 2)
+========================================================================
+Submitters:
+-----------
+1. Name: Romy Hane   ID: 324271071
+2. Name: Tomer Kill     ID: 322546169
+
+
+Project Description:
+--------------------
+"Get That A" is a collaborative console-based text adventure game where two players, 
+Romy (R) and Tomer (T), must work together to solve riddles, avoid bombs, 
+open doors, push obstacles, and navigate through levels to defeat the semester.
+
+Changes to Suggested Characters:
+--------------------------------
+Players: Instead of using '$' and '&', we used 'R' and 'T' (our initials) to make 
+the game feel more personal. 
+
+Walls: Instead of using 'W', we designed the walls using '+' for corners, 
+'-' for the floor and ceiling, and '|' for vertical walls, creating a cleaner and 
+more organized aesthetic.
+
+Monsters: We added a FAIL Monster represented by the character 'F' (see the BONUS 
+file for more details).
+
+Darkness: We used the '~' character to represent the Dark Area (Fog) in Level 3.
+
+Map Format & File Validation Logic:
+-----------------------------------
+To ensure game stability and prevent crashes due to corrupted files, we implemented 
+a robust file loading mechanism in the 'initLevel' and 'loadLevelFromFile' functions:
+
+1. Mandatory Legend Anchor ('L'): 
+   The game strictly validates that every map file contains the 'L' character. 
+   This anchor is critical for aligning the Status Bar (Legend) relative to the board. 
+   If 'L' is missing, the system identifies the file as corrupt and refuses to load it.
+
+2. Integrity Check (Empty/Partial Files): 
+   The loader counts the actual number of processed lines. If a file exists but 
+   is empty or contains insufficient data (e.g., a "cut-off" map), the game detects 
+   the anomaly and aborts the launch with a specific error message, instead of 
+   loading a broken state.
+
+Key Map Symbols:
+----------------
+ 'R', 'T'       : Player Spawn Points.
+ 'L'            : Legend/UI Anchor (Must exist!).
+ '+', '-', '|'  : Walls (Custom design for corners and sides).
+ 'F'            : Fail Monster.
+ '~'            : Dark Floor Area.
+ '\' , '/'		: Regular Switch (as required).
+ '^'			: Smart Switch (our addition).
+ [Standard game symbols apply for Keys, Doors, Bombs, etc.]
+
+Level 1 Walkthrough:
+--------------------
+Tomer collects the bomb and detonates it against the wall to reach the Smart Switch. 
+He then stands on the switch to open Door #1, allowing Romy to pass through. 
+Once Tomer steps off the switch, the door closes. Next, Romy stands on the Smart Switch 
+(from the other side) to reopen Door #1, allowing Tomer to join her. 
+One player solves the riddle to clear the path, followed by the other. 
+Finally, one player collects the key and opens Door #2. 
+Both players exit through the door and proceed to Level 2.
+
+
+Level 2 Walkthrough:
+--------------------
+Romy and Tomer start near the entrance from the previous level. One player collects 
+the key and opens Door #3. Next, one player stands on the Smart Switch to open Door #4, 
+allowing the other player to pass. The first player steps off (closing the door), 
+and the player who passed stands on the corresponding Smart Switch on the other side 
+to reopen Door #4 for the first player. Then, they proceed to solve the riddle. 
+After solving the riddle, one player collects a bomb and uses it to destroy the wall 
+separating them from the Torch. Next, they collect the Torch, enter the Dark Room, 
+and activate the Regular Switch (Latching). This permanently opens Door #5, allowing 
+both players to exit to the next level.
+
+
+Level 3 Walkthrough:
+--------------------
+Romy and Tomer begin in a closed area blocked by walls and obstacles. To exit, they 
+must work together to push a 2-unit Obstacle (**), as their individual default strength 
+is 1. Next, they face a heavier 5-unit Obstacle (*****). One player pushes normally 
+while the other uses the Spring (####) opposite the obstacle, combining their force (1 + 4) 
+to move the block. They then use co-op mechanics on a Smart Switch to open Door #6. 
+Upon reaching the Dark Area (marked by '~'), they activate a Regular Switch to open 
+Door #7 and collect the Torch (!). To retrieve the Key, one player enters slightly 
+into the dark area with the Torch to illuminate the path and reveal the patrolling 
+'FAIL Monster' ('F'). Avoiding the monster is critical, as any contact results in an 
+immediate GAME OVER and sends you back to the Main Menu! While avoiding it, the 
+second player navigates the lit path to the top-left corner to retrieve the Key. 
+Finally, they use the key to open Door #8, escaping the level to the end room and 
+the Victory Screen.

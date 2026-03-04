@@ -15,6 +15,7 @@ The project demonstrates strong command of **C++**, **Data Structures**, **Algor
 * **Enhanced UI/UX via Windows Console API:** * Full multi-color rendering using `SetConsoleTextAttribute`.
     * Unicode support for graphic symbols (e.g., ♥ for lives).
     * Dynamic "Fog of War" (Dark Room) using line-of-sight algorithms.
+* **Command-Line Automation & Testing:** The engine supports advanced execution via CLI arguments (`-save`, `-load`, `-silent`) for tracking keystrokes, automated playback testing, and headless execution for instant QA validation.
 
 ## 🕹️ Gameplay Mechanics
 * **Asymmetric Co-op:** Players must work together to hold *Smart Switches* open for each other and combine strength to push heavy objects.

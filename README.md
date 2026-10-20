@@ -27,5 +27,13 @@ The project demonstrates strong command of **C++**, **Data Structures**, **Algor
 * **Environment:** Visual Studio 2022
 * **Libraries:** Standard Template Library (STL), `<filesystem>`, `<windows.h>` (Console API)
 
+## Controls
+* **Action**	Romy (R)	Tomer (T)
+* **Up / Down**	W / X	I / M
+* **Left / Right**	A / D	J / L
+* **Stay / release spring**	S	K
+* **Use / drop item**	E	O
+* **ESC** pauses the game.
+
 ## 👩‍💻 Developers
 * **Romy Hane** * **Tomer Kill**
